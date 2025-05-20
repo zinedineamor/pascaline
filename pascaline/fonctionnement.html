@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fonctionnement - La Pascaline</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    html {
+      height: 100%;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f2e6c8, #b28948);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      color: #4b3b1b;
+    }
+    header {
+      background-color: #6b4f2d;
+      padding: 1rem 2rem;
+      box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+      width: 100%;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #f5deb3;
+      text-decoration: none;
+    }
+    nav ul li a.active {
+      color: #ffd700;
+      border-bottom: 2px solid #ffd700;
+      padding-bottom: 2px;
+    }
+
+    main {
+      width: 100%;
+      min-height: calc(100vh - 90px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem 1rem;
+    }
+
+    section {
+      max-width: 1000px;
+      width: 100%;
+      background: #fff8e1;
+      border: 2px solid #b28948;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 0 15px #b2894888;
+    }
+
+    section h1 {
+      font-size: 2.5rem;
+      color: #6b4f2d;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #6b4f2d;
+      padding-bottom: 0.3rem;
+    }
+
+    section p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .simu {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .simu img {
+      max-width: 100%;
+      height: auto;
+      border: 5px solid #6b4f2d;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #6b4f2d88;
+    }
+
+    footer {
+      background-color: #6b4f2d;
+      color: #f5deb3;
+      text-align: center;
+      padding: 1rem;
+      font-style: italic;
+      font-size: 0.9rem;
+      width: 100%;
+      box-shadow: inset 0 3px 5px rgba(0,0,0,0.3);
+    }
+
+    @media (max-width: 700px) {
+      section h1 {
+        font-size: 2rem;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="histoire.html">Histoire</a></li>
+        <li><a href="fonctionnement.html" class="active">Fonctionnement</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h1>Comment fonctionne La Pascaline ?</h1>
+      <p>
+        La Pascaline fonctionne à l’aide de roues dentées engrenées entre elles. Chaque roue représente un chiffre de 0 à 9.
+        En tournant une roue, elle entraîne la suivante lorsque le chiffre passe de 9 à 0, ce qui simule une retenue.
+      </p>
+      <p>
+        L'utilisateur saisissait les chiffres à additionner en tournant des cadrans avec une plume métallique.
+        Les résultats s'affichaient dans de petites fenêtres en haut de la machine. Cette méthode permettait des calculs
+        plus rapides et plus précis que les calculs manuels de l'époque.
+      </p>
+      <div class="simu">
+        <img src="images/simulation_pascaline.jpg" alt="Schéma de fonctionnement de la Pascaline">
+        <p><em>Représentation d’une simulation du mécanisme de La Pascaline</em></p>
+      </div>
+    </section>
+    <section>
+  <h1>Simulation interactive de La Pascaline</h1>
+  <p>Tournez les roues pour effectuer des additions comme sur une vraie Pascaline mécanique. Le report automatique se fait lors du dépassement de 9.</p>
+
+  <div class="pascaline-simu" aria-label="Simulation mécanique de La Pascaline" style="display:flex; justify-content:center; gap:1rem; margin-top:1rem;">
+    <!-- Chaque roue -->
+    <div class="wheel" style="text-align:center; user-select:none;">
+      <button class="turn" data-wheel="3" data-dir="up" aria-label="Tourner roue milliers vers le haut" style="font-size:1.5rem;">▲</button>
+      <div class="digit" id="wheel3" style="font-size:3rem; font-weight:bold; margin:0.3rem 0;">0</div>
+      <button class="turn" data-wheel="3" data-dir="down" aria-label="Tourner roue milliers vers le bas" style="font-size:1.5rem;">▼</button>
+      <div style="font-weight:600; margin-top:0.5rem;">Milliers</div>
+    </div>
+    <div class="wheel" style="text-align:center; user-select:none;">
+      <button class="turn" data-wheel="2" data-dir="up" aria-label="Tourner roue centaines vers le haut" style="font-size:1.5rem;">▲</button>
+      <div class="digit" id="wheel2" style="font-size:3rem; font-weight:bold; margin:0.3rem 0;">0</div>
+      <button class="turn" data-wheel="2" data-dir="down" aria-label="Tourner roue centaines vers le bas" style="font-size:1.5rem;">▼</button>
+      <div style="font-weight:600; margin-top:0.5rem;">Centaines</div>
+    </div>
+    <div class="wheel" style="text-align:center; user-select:none;">
+      <button class="turn" data-wheel="1" data-dir="up" aria-label="Tourner roue dizaines vers le haut" style="font-size:1.5rem;">▲</button>
+      <div class="digit" id="wheel1" style="font-size:3rem; font-weight:bold; margin:0.3rem 0;">0</div>
+      <button class="turn" data-wheel="1" data-dir="down" aria-label="Tourner roue dizaines vers le bas" style="font-size:1.5rem;">▼</button>
+      <div style="font-weight:600; margin-top:0.5rem;">Dizaines</div>
+    </div>
+    <div class="wheel" style="text-align:center; user-select:none;">
+      <button class="turn" data-wheel="0" data-dir="up" aria-label="Tourner roue unités vers le haut" style="font-size:1.5rem;">▲</button>
+      <div class="digit" id="wheel0" style="font-size:3rem; font-weight:bold; margin:0.3rem 0;">0</div>
+      <button class="turn" data-wheel="0" data-dir="down" aria-label="Tourner roue unités vers le bas" style="font-size:1.5rem;">▼</button>
+      <div style="font-weight:600; margin-top:0.5rem;">Unités</div>
+    </div>
+  </div>
+
+  <button id="reset" style="margin-top:1.5rem; font-size:1.2rem; padding:0.5rem 1rem; background:#6b4f2d; color:#f5deb3; border:none; border-radius:6px; cursor:pointer;">Réinitialiser</button>
+
+  <div id="result" aria-live="polite" style="margin-top:1rem; font-size:1.5rem; font-weight:bold; color:#6b4f2d;"></div>
+</section>
+
+<script>
+  // Etat des roues (0 = unités, 3 = milliers)
+  const wheels = [0,0,0,0];
+
+  // Met à jour l'affichage
+  function updateDisplay() {
+    for(let i=0; i<4; i++) {
+      document.getElementById('wheel'+i).textContent = wheels[i];
+    }
+    updateResult();
+  }
+
+  // Calcul la valeur totale
+  function updateResult() {
+    const total = wheels[3]*1000 + wheels[2]*100 + wheels[1]*10 + wheels[0];
+    document.getElementById('result').textContent = "Valeur affichée : " + total;
+  }
+
+  // Tourner roue vers le haut avec report
+  function turnUp(index) {
+    wheels[index]++;
+    if (wheels[index] > 9) {
+      wheels[index] = 0;
+      if(index < 3) {
+        turnUp(index+1);
+      }
+    }
+  }
+
+  // Tourner roue vers le bas avec report
+  function turnDown(index) {
+    wheels[index]--;
+    if (wheels[index] < 0) {
+      wheels[index] = 9;
+      if(index < 3) {
+        turnDown(index+1);
+      }
+    }
+  }
+
+  // Ajout des événements
+  document.querySelectorAll('button.turn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const wheelIndex = parseInt(btn.dataset.wheel);
+      if(btn.dataset.dir === 'up') {
+        turnUp(wheelIndex);
+      } else {
+        turnDown(wheelIndex);
+      }
+      updateDisplay();
+    });
+  });
+
+  // Bouton reset
+  document.getElementById('reset').addEventListener('click', () => {
+    for(let i=0; i<4; i++) wheels[i] = 0;
+    updateDisplay();
+  });
+
+  updateDisplay();
+</script>
+
+  </main>
+
+  <footer>
+    <p>© 2025 | Projet BTS SIO option SLAM - Zinedine AMOR & Sofiane ATTAL</p>
+  </footer>
+</body>
+</html>
